@@ -51,3 +51,37 @@ st.image("images.jpg", caption="This is my image", width=680)
 st.audio("KavinskyNightcall.mp3")
 st.video("KaliLinuxInstall.mp4")
 
+# display interactive widgets
+st.text("Display interactive widgets - CHeckBox")
+st.checkbox("Checkbox", value=True)
+# using logic
+st.text("widgets with python logic")
+state = st.checkbox("State", value=True)
+if state:
+    st.write("True")
+else:
+    st.write("False")
+# adding an on_change function
+st.text("Using on_change widget property")
+def changes():
+    print("Checkbox changed!")
+box_on_change = st.checkbox("Chkbx", value=True, on_change=changes)
+st.text("Adding a key id property")
+def keyid():
+    print(st.session_state.chkr)
+box_with_keyid = st.checkbox("KeyID", value=True, on_change=keyid, key="chkr")
+st.text("Display interactive widgets - RadioButton")
+rdo_btn = st.radio("Where do you live?", options=("U.S.A.","uk","canada"))
+st.text("Display Radio Button choice")
+rdo_disp = st.radio("Display choice in terminal", options=("U.S.A.","uk","canada"))
+st.write(rdo_disp)
+st.text("Display interactive widgets - Buttons")
+def btn_clk():
+    print("Ya clicked me!")
+btn = st.button("Click Me!", on_click=btn_clk)
+st.text("Display interactive widgets - SelectBox")
+select_box = st.selectbox("What is your favorite car?", options=("Mustang","Camaro","Corvette"))
+print(select_box)
+st.text("Display interactive widgets - MultiSelectBox")
+multi_select = st.multiselect("What is your favorite car?", options=("Mustang","Camaro","Corvette"))
+st.write(multi_select)
