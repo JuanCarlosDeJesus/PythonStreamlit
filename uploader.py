@@ -27,3 +27,29 @@ if aud is not None:
 vid = st.file_uploader("Please upload a video: ", type="mp4")
 if vid is not None:
     st.video(vid)
+
+# using slider
+val = st.slider("This is a .slider()", value=70)
+print(val)
+st.write(val)
+# using select_slider
+color = st.select_slider("This is a .select_slider(), select colors:", options=["Black","Red","Blue"])
+st.write(color)
+
+# Text Input
+txt = st.text_input("Enter your course title:", max_chars=60)
+print(txt)
+st.write(txt)
+
+# text area
+txt_area = st.text_area("Course Description: ")
+print(txt_area)
+
+# Date input
+dt = st.date_input("Enter the date: ")
+print(dt)
+
+# Time input
+
+tm = st.time_input("Enter the time: ")
+print(tm)
