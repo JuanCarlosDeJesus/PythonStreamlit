@@ -3,22 +3,26 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 x=np.linspace(0,10,100)  # create a linspace object with number plots
-st.markdown("""
-<style>
-.st-emotion-cache-6q9sum.ef3psqc4
-{
-    visibility: hidden;
-}
-.st-emotion-cache-1wbqy5l.e17vllj40
-{
-    visibility: hidden;
-}
-</style>
-""", unsafe_allow_html=True)
+b_x = np.array([1,2,3,4,5])
 # adding the sidebar widget
-st.sidebar.write("Hello, I am a sidebar!")
 opt=st.sidebar.radio("Select any Graph:", options=("Line","Bar","H-Bar"))
-# adding plot and graph widget
-fig=plt.figure()  # create a figure() for the plots
-plt.plot(x, np.sin(x))
-st.write(fig)
+# adding plot and graph widget via the opt radio
+if opt == "Line":
+    st.markdown("<h1 style='text-align:center;'>Line Chart</h1>", unsafe_allow_html=True)
+    fig=plt.figure()  # create a figure() for the plots
+    plt.style.use("https://github.com/dhaitz/matplotlib-stylesheets/raw/master/pitayasmoothie-dark.mplstyle")
+    plt.plot(x, np.sin(x))
+    plt.plot(x, np.cos(x), '--')
+    st.write(fig)
+elif opt == "Bar":
+    st.markdown("<h1 style='text-align:center;'>Bar Chart</h1>", unsafe_allow_html=True)
+    fig=plt.figure()  # create a figure() for the plots
+    plt.style.use("https://github.com/dhaitz/matplotlib-stylesheets/raw/master/pitayasmoothie-dark.mplstyle")
+    plt.bar(b_x, b_x*10)
+    st.write(fig)
+else:
+    st.markdown("<h1 style='text-align:center;'>Horizontal Bar Chart</h1>", unsafe_allow_html=True)
+    fig=plt.figure()  # create a figure() for the plots
+    plt.style.use("https://github.com/dhaitz/matplotlib-stylesheets/raw/master/pitayasmoothie-dark.mplstyle")
+    plt.barh(b_x*10, b_x)
+    st.write(fig)
