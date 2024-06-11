@@ -40,3 +40,22 @@ with st.container():
         st.write("[YouTube Channel >](https://youtube.com/c/CodingIsFun)")
     with right_column:
         st_lottie(lottie_coding, height = 300, key="coding")
+    
+    # ---- PROJECTS ----
+    with st.container():
+        st.write("---")
+        st.header("My Projects")
+        st.write("##")
+        image_column, text_column = st.columns((1, 2))
+        with image_column:
+            st.write("")
+        with text_column:
+            st.subheader("Integrate Lottie animation inside your Streamlit App")
+            st.write(
+                    """
+                    Learn how to use Lottie files in Streamlit!
+                    Animations make our web app more engaging and fun, and lottie files are the easiest way to do it.
+                    In this tutorial, I will show you exactly how to do it.
+                    """
+                     )
+            st.markdown("[Watch video ... ](https://youtu.be/TXSOitgoINE)")
