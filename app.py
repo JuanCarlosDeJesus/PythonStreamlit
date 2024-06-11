@@ -1,7 +1,18 @@
+import requests
 import streamlit as st
+from streamlit_lottie import st_lottie
 
 # find more emojis here: webfx.com/tools/emoji-cheat-sheet
 st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
+
+def load_lottieurl(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+# ---- LOAD ASSETS ----
+lottie_coding = load_lottieurl("https://lottie.host/41b08c2e-66e7-49d6-bfae-05ae89860138/ZTdTguFYDQ.json")
 
 # ---- HEADER SECTION ----
 with st.container():
@@ -27,3 +38,5 @@ with st.container():
             """
         )
         st.write("[YouTube Channel >](https://youtube.com/c/CodingIsFun)")
+    with right_column:
+        st_lottie(lottie_coding, height = 300, key="coding")
