@@ -12,6 +12,14 @@ def load_lottieurl(url):
         return None
     return r.json()
 
+# Use local CSS
+def local_css(file_name):
+    with open (file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+local_css("style/style.css")
+
+
 # ---- LOAD ASSETS ----
 lottie_coding = load_lottieurl("https://lottie.host/41b08c2e-66e7-49d6-bfae-05ae89860138/ZTdTguFYDQ.json")
 img_contact_form = Image.open("images/yt_contact_form.png")
