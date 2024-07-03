@@ -67,9 +67,7 @@ st.markdown("---")
 
 # st.dataframe(df_selection) - pandas
 # SALES BY PRODUCT LINE[BAR CHART]
-sales_by_product_line = (
-    df_selection.groupby(by=["Product line"]).sum()[["Total"]].sort_values(by="Total")
-)
+sales_by_product_line = df_selection.groupby(by=["Product line"])[["Total"]].sum().sort_values(by="Total")  # adjusted [["Total"]].sum()
 fig_product_sales = px.bar(
     sales_by_product_line,
     x="Total",
