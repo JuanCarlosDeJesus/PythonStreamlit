@@ -27,7 +27,7 @@ st_lottie(
     reverse=False,
     loop=True,
     quality="low",
-    renderer="svg",
+    # renderer="svg",
     height=None,
     width=None,
     key=None,
