@@ -9,7 +9,7 @@ favicon = "images/favicon.ico"
 st.set_page_config(page_title="Happy Holiday Season", page_icon=favicon)
 
 # Load Data in Dataframe
-@st.cache_resource(suppress_st_warning=True)
+@st.cache_data   # @st.cache(suppress_st_warning=True) - is deprecated
 def get_data():
     df = pd.read_excel("data/Japan-1950-2020.xlsx")
     return df
@@ -31,18 +31,18 @@ animation_symbol = "❄️"
 
 st.markdown(
     f"""
-    <div class="snowflake>{animation_symbol}</div>
-    <div class="snowflake>{animation_symbol}</div>
-    <div class="snowflake>{animation_symbol}</div>
-    <div class="snowflake>{animation_symbol}</div>
-    <div class="snowflake>{animation_symbol}</div>
-    <div class="snowflake>{animation_symbol}</div>
-    <div class="snowflake>{animation_symbol}</div>
-    <div class="snowflake>{animation_symbol}</div>
-    <div class="snowflake>{animation_symbol}</div>
-    <div class="snowflake>{animation_symbol}</div>
+    <div class="snowflake">{animation_symbol}</div>
+    <div class="snowflake">{animation_symbol}</div>
+    <div class="snowflake">{animation_symbol}</div>
+    <div class="snowflake">{animation_symbol}</div>
+    <div class="snowflake">{animation_symbol}</div>
+    <div class="snowflake">{animation_symbol}</div>
+    <div class="snowflake">{animation_symbol}</div>
+    <div class="snowflake">{animation_symbol}</div>
+    <div class="snowflake">{animation_symbol}</div>
+    <div class="snowflake">{animation_symbol}</div>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
 
 
