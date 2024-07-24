@@ -1,7 +1,8 @@
-from PIL import Image
-import requests
 import streamlit as st
+import requests
 from streamlit_lottie import st_lottie
+from PIL import Image
+
 
 # find more emojis here: webfx.com/tools/emoji-cheat-sheet
 st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
@@ -25,6 +26,7 @@ lottie_coding = load_lottieurl("https://lottie.host/41b08c2e-66e7-49d6-bfae-05ae
 img_contact_form = Image.open("images/yt_contact_form.png")
 img_lottie_animation = Image.open("images/yt_lottie_animation.png")
 
+
 # ---- HEADER SECTION ----
 with st.container():
     st.subheader("Hi, I am Carl :wave:")
@@ -32,11 +34,13 @@ with st.container():
     st.write("I am using python and VBA to more efficient in data analysis")
     st.write("[Learn More >](https://pythonandvba.com)")
 
+
 # ---- WHAT I DO ----
 with st.container():
     st.write("---")
     left_column, right_column = st.columns(2)
     with left_column:
+        st.header("What I do:")
         st.write("##")
         st.write(
             """
@@ -51,8 +55,9 @@ with st.container():
         st.write("[YouTube Channel >](https://youtube.com/c/CodingIsFun)")
     with right_column:
         st_lottie(lottie_coding, height = 300, key="coding")
-    
-    # ---- PROJECTS ----
+
+
+# ---- PROJECTS ----
     with st.container():
         st.write("---")
         st.header("My Projects")
@@ -83,7 +88,8 @@ with st.container():
                     """
                      )
             st.markdown("[Watch video ... ](https://youtu.be/FOULV9Xij_8)")
-    
+
+
 # ---- CONTACT ----
 with st.container():
     st.write("---")
