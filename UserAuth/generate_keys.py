@@ -9,6 +9,6 @@ passwords = ["******", "******"] # rewrote password after running file
 
 hashed_passwords = Hasher(passwords).generate()
 
-file_path = Path(__file__).parent / "hashed_pw.pk1"
+file_path = Path(__file__).parent / "hashed_pw.pkl"
 with file_path.open("wb") as file:
     pickle.dump(hashed_passwords, file)
