@@ -1,10 +1,12 @@
-import pickle
-from pathlib import Path
+# import pickle
+# from pathlib import Path
 
 import streamlit as st
 import streamlit_authenticator as stauth
 import pandas as pd
 import plotly_express as px
+
+import database as db
 
 
 st.set_page_config(page_title="Sales Dashboard",
@@ -13,21 +15,27 @@ st.set_page_config(page_title="Sales Dashboard",
 
 
 # --- USER AUTHENTICATION ---
-names = ["Peter Parker","Mary Jane Watson"]
-usernames = ["pparker","mjwatson"]
+# names = ["Peter Parker","Mary Jane Watson"]
+# usernames = ["pparker","mjwatson"]
 
 # Load hashed passwords
-file_path = Path(__file__).parent / "hashed_pw.pkl"
-with file_path.open("rb") as file:
-    hashed_password = pickle.load(file)
+# file_path = Path(__file__).parent / "hashed_pw.pkl"
+# with file_path.open("rb") as file:
+#     hashed_password = pickle.load(file)
 
-credentials = {"usernames":{}}
+# credentials = {"usernames":{}}
 
-for un, name, pw in zip(usernames, names, hashed_password):
-    user_dict = {"name":name,"password":pw}
-    credentials["usernames"].update({un:user_dict})
+# for un, name, pw in zip(usernames, names, hashed_password):
+#     user_dict = {"name":name,"password":pw}
+#     credentials["usernames"].update({un:user_dict})
 
-authenticator = stauth.Authenticate(credentials, "sales_dashboard", "abcdef", cookie_expiry_days=30)
+users = db.fetch_all_users()
+
+usernames = [user["key"] for user in users]
+names = [user["name"] for user in users]
+hashed_passwords = [user["password"] for user in users]
+
+authenticator = stauth.Authenticate(names, usernames, hashed_passwords, "sales_dashboard", "abcdef", cookie_expiry_days=30)
 
 name, authentication_status, username = authenticator.login('main', fields = {'Form name': 'custom_form_name'})
 
