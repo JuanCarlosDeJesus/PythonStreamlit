@@ -53,6 +53,7 @@ statsmodels==0.14.2
 streamlit==1.33.0
 streamlit-authenticator==0.3.2
 streamlit-lottie==0.0.5
+streamlit-option-menu==0.3.13
 tenacity==8.2.3
 toml==0.10.2
 toolz==0.12.1
