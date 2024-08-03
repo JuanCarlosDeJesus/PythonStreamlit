@@ -20,7 +20,8 @@ def insert_period(period, incomes, expenses, comment):
 
 def fetch_all_periods():
     """Returns a dict of all periods"""
-    return db.items
+    res = db.fetch()
+    return res.items
 
 def get_period(period):
     """If not found, the function will return None"""
