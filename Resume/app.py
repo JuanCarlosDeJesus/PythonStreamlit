@@ -93,4 +93,50 @@ st.subheader("Work History")
 st.write("---")
 
 # --- JOB 1 ---
-st.write("")
+st.write("💼", "**Senior Data Analyst | Ross Industries**")
+st.write("02/2015 - Present")
+st.write(
+    """
+- ✍🏻 Used PowerBI and SQL to redefine and track KPI's surrounding marketing initiatives,
+and supplied recommendations to boost landing page conversion rate by 38%
+- ✍🏻 Led a team of 4 analyst to brainstorm potential marketing and sales improvements,
+and implemented A/B tests to generate 15% more client leads 
+- ✍🏻 Redesigned data model through iterations that improved predictions by 12%
+"""
+)
+
+# --- JOB 2 ---
+st.write("#")
+st.write("💼", "**Data Analyst | Liberty Mutual Insurance**")
+st.write("02/2011 - 05/2015")
+st.write(
+    """
+- ✍🏻 Built data models and maps to generate meaningful insights from customer data,
+boosting successful sales efforts by 12%
+- ✍🏻 Modeled targets likely to renew, and presented analysis to leadership, which led to
+a YoY revenue increase of $300K
+- ✍🏻 Compiled, studied, and inferred large amounts of data, modeling information to drive
+auto policy pricing
+"""
+)
+
+# --- JOB 3 ---
+st.write("#")
+st.write("💼", "**Data Analyst | Chegg**")
+st.write("06/2009 - 10/2011")
+st.write(
+    """
+- ✍🏻 Devised KPI's using SQL across company website in collaboration with cross-functional
+teams to achieve a 120% jump in organic traffic
+- ✍🏻 Analyzed, documented, and reported user survey results to improcce customer
+communication processes by 18%
+- ✍🏻 Collaborated with analyst team to oversee end-to-end proess surrounding customers' return data
+"""
+)
+
+# --- Projects & Accomplishments ---
+st.write("#")
+st.subheader("Projects & Accomplishments")
+st.write("---")
+for project, link in PROJECTS.items():
+    st.write(f"[{project}]({link})")
