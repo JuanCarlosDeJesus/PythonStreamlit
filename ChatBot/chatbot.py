@@ -10,8 +10,8 @@ if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-3.5-turbo"
 
 # Initialize chat history
-if "message" not in st.session_state:
-    st.session_state.message = []
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
 # Display chat messages from history in app rerun
 for message in st.session_state.messages:
@@ -29,7 +29,7 @@ if prompt := st.chat_input("What is up?"):
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
-        for response in openai.completions.create(
+        for response in openai.chat.completions.create(
             model=st.session_state["openai_model"],
             messages=[
                 {"role": m["role"], "content": m["content"]}
